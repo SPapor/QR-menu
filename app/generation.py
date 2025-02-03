@@ -1,6 +1,7 @@
 from typing import Any
-from PIL import Image
+
 import qrcode
+from PIL import Image
 
 
 def generator_qrcode(link_id: Any) -> Image.Image:
