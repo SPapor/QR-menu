@@ -1,7 +1,17 @@
-
 VENV_PATH = .venv
 
-PYTHON = $(shell [ -x $(VENV_PATH)/bin/python ] && echo "$(VENV_PATH)/bin/python" || echo "python")
+ifeq ($(OS), Windows_NT)
+    # Windows
+	SHELL = cmd.exe
+    PYTHON := $(if $(wildcard $(VENV_PATH)/Scripts/python.exe), \
+                $(VENV_PATH)/Scripts/python.exe, \
+                python)
+else
+    # Linux / Mac
+    PYTHON := $(if $(wildcard $(VENV_PATH)/bin/python), \
+                $(VENV_PATH)/bin/python, \
+                python)
+endif
 
 install-requirements:
 	$(PYTHON) -m pip install -r requirements.txt -r requirements-dev.txt
