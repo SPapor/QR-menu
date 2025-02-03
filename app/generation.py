@@ -1,10 +1,8 @@
-from typing import Any
-
 import qrcode
 from PIL import Image
 
 
-def generator_qrcode(link_id: Any) -> Image.Image:
+def generate_qrcode(link_id: str) -> Image.Image:
     qr = qrcode.main.QRCode(
         version=5,
         error_correction=qrcode.constants.ERROR_CORRECT_M,
