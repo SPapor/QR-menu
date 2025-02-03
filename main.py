@@ -1,12 +1,6 @@
-import math
-import sys
+def pochesat():
+    print("Почесать")
 
 
-def foo():
-    try:
-        import multiprocessing
-
-        print(multiprocessing.cpu_count())
-    except ImportError:
-        print(sys.version)
-    return math.pi
+if __name__ == '__main__':
+    pochesat()
