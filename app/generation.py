@@ -1,10 +1,10 @@
 from typing import Any
-
+from PIL import Image
 import qrcode
 
 
-def generator_qrcode(link_id: Any):
-    qr = qrcode.QRCode(
+def generator_qrcode(link_id: Any) -> Image.Image:
+    qr = qrcode.main.QRCode(
         version=5,
         error_correction=qrcode.constants.ERROR_CORRECT_M,
         box_size=10,
